@@ -9,6 +9,7 @@ export default {
       colors:{
         primaryText:'#09080F',
         primaryBg:'#9538E2',
+        seconderyBg:'#fffeff',
       },
     },
   },

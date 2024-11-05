@@ -3,29 +3,29 @@ import { NavLink, useLocation } from "react-router-dom";
 
 export default function NavBar() {
   const location = useLocation();
-  const activeLink = `${location.pathname=='/'?'text-white underline':'text-primaryBg'}  font-bold`;
+  const activeLink = `${location.pathname=='/'?'focus:text-white text-white underline hover:bg-transparent':'focus:text-primaryBg text-primaryBg hover:bg-transparent hover:text-primaryBg'} focus:bg-transparent font-bold`;
   const inActiveLink =
-    `${location.pathname=='/'?'text-white hover:underline no-underline':'text-primaryText/70'}  font-medium `;
+    `${location.pathname=='/'?'text-white hover:underline no-underline hover:transparent':'text-primaryText/50 hover:bg-transparent hover:text-primaryBg'}  font-medium`;
   const navItem = (
     <>
-      <NavLink
+      <li><NavLink
         to={"/"}
         className={({ isActive }) => (isActive ? activeLink : inActiveLink)}
       >
-        <li>Home</li>
-      </NavLink>
-      <NavLink
+        Home
+      </NavLink></li>
+      <li><NavLink
         to={"/statistics"}
         className={({ isActive }) => (isActive ? activeLink : inActiveLink)}
       >
-        <li>Statistics</li>
-      </NavLink>
-      <NavLink
+        Statistics
+      </NavLink></li>
+      <li><NavLink
         to={"/dashboard"}
         className={({ isActive }) => (isActive ? activeLink : inActiveLink)}
       >
-        <li>Dashboard</li>
-      </NavLink>
+        Dashboard
+      </NavLink></li>
     </>
   );
   return (
@@ -33,10 +33,10 @@ export default function NavBar() {
       <div className="navbar container mx-auto py-7">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} role="button" className={`${location.pathname=='/'?'text-white bg-primaryBg':'text-primaryText'} lg:hidden pr-4`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -51,7 +51,7 @@ export default function NavBar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className={`menu menu-sm dropdown-content ${location.pathname=='/'?'bg-primaryBg':'bg-white'} rounded-box z-50 mt-3 w-52 p-2 shadow-md `}
             >
               {navItem}
             </ul>
@@ -61,7 +61,7 @@ export default function NavBar() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-3">{navItem}</ul>
         </div>
-        <div className="navbar-end gap-8 pr-4">
+        <div className="navbar-end gap-3 pr-4">
           <div className="indicator">
             <span className="indicator-item badge bg-primaryBg font-bold text-white border-0 rounded-full w-6 h-6">
               16
