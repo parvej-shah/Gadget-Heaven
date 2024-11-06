@@ -30,7 +30,7 @@ export default function NavBar() {
   );
   return (
     <div className={location.pathname=='/'?'bg-primaryBg':'bg-white'}>
-      <div className="navbar container mx-auto py-7">
+      <div className="navbar container mx-auto py-4">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className={`${location.pathname=='/'?'text-white bg-primaryBg':'text-primaryText'} lg:hidden pr-4`}>
@@ -56,7 +56,7 @@ export default function NavBar() {
               {navItem}
             </ul>
           </div>
-          <a className={location.pathname=='/'?'text-white font-bold text-xl':'text-xl text-primaryText font-bold'} >Gadget Heaven</a>
+          <a className={location.pathname=='/'?'text-white font-bold text-xl hidden md:flex':'hidden md:flex text-xl text-primaryText font-bold'} >Gadget Heaven</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-3">{navItem}</ul>

@@ -30,7 +30,7 @@
       "13.4-inch FHD+ Display",
       "12-hour battery life"
     ],
-    "availability": true,
+    "availability": false,
     "rating": 4.6
   },
   {
@@ -149,7 +149,7 @@
       "6.4-inch OLED display",
       "5G support"
     ],
-    "availability": true,
+    "availability": false,
     "rating": 4.6
   },
   {
@@ -182,7 +182,7 @@
       "Spatial audio",
       "Up to 4.5 hours of listening time"
     ],
-    "availability": true,
+    "availability": false,
     "rating": 4.8
   },
   {
