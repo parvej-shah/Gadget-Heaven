@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Banner from '../../components/banner/Banner'
 import Products from '../../components/product/Products'
 import { useLoaderData } from 'react-router-dom'
 import ProductCategories from '../../components/product/ProductCategories';
+import { cartContext } from '../../context';
 
 export default function Home() {
+    const {setTitle} = useContext(cartContext);
     const allProducts = useLoaderData();
     const[ categories,setCategories] = useState([]);
     const[ searchedProducts,setSearchedProducts] = useState([]);
@@ -13,6 +15,7 @@ export default function Home() {
         const getCategories = allProducts.map(product=> product.category);
         setCategories(['All Products',...new Set(getCategories)]);
         setSearchedProducts(allProducts);
+        setTitle('Gadget Heaven');
     },[])
     const searchProduct = (category)=>{
         if(category==='All Products'){

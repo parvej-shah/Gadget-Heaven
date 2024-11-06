@@ -4,10 +4,11 @@ import { Outlet } from "react-router-dom";
 import { cartContext } from "../../context";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Helmet, HelmetProvider } from "react-helmet-async"
 export default function Root() {
   const [carts, setCarts] = useState([]);
   const [wishLists, setWishLists] = useState([]);
+  const [title, setTitle] = useState('Gadget Heaven');
   const handleAddToCart = (product)=>{
     const productFind = carts.find(item=>item.product_id === product.product_id);
     if(productFind){
@@ -43,7 +44,11 @@ export default function Root() {
     setCarts(sortedArray);
   };
   return (
-    <cartContext.Provider value={{carts,handleAddToCart,wishLists,handleAddToWishList,setWishLists,setCarts,handleRemoveWishList,handleRemoveCart,sortCart}}>
+    <cartContext.Provider value={{carts,handleAddToCart,wishLists,handleAddToWishList,setWishLists,setCarts,handleRemoveWishList,handleRemoveCart,sortCart,setTitle}}>
+      <HelmetProvider>
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
       <div>
       <div>
         <NavBar />
@@ -51,6 +56,7 @@ export default function Root() {
       <Outlet />
       <ToastContainer/>
     </div>
+      </HelmetProvider>
     </cartContext.Provider>
   );
 }
