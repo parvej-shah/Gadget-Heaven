@@ -1,23 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { cartContext } from "../../context";
+import ListedProduct from "./ListedProduct";
 
 export default function Cart() {
-  const { carts } = useContext(cartContext);
+  let { carts,handleRemoveCart,sortCart,setCarts } = useContext(cartContext);
+    const [sortedCart, setSortedCart] = useState(carts);
+  useEffect(()=>{
+    setSortedCart(carts);
+  },[carts])
   const totalSum = carts.reduce(
     (accumulator, currentValue) => accumulator + currentValue.price,
     0
   );
+const handlePurchase = ()=>{
+    setCarts([]);
+}
   return (
     <div className="bg-seconderyBg pt-10">
       <section className="container mx-auto px-2">
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between items-center">
           <h1 className="font-bold text-2xl text-primaryText">Cart</h1>
-          <div className="flex gap-4 items-center justify-center">
+          <div className="flex gap-4 items-center justify-center flex-col md:flex-row">
             <h2 className="font-bold text-2xl text-primaryText">
-              Total Cost: {totalSum}
+              Total Cost: {totalSum.toFixed(2)}
             </h2>
-            <button className="btn rounded-full bg-white border-[1.5px] border-t-primaryBg border-b-pink-500 border-x-primaryBg text-primaryBg text-lg font-semibold hover:bg-primaryBg hover:text-white flex w-fit justify-center items-center">
-              Sort By Price{" "}
+            <button
+              onClick={sortCart}
+              className="btn rounded-full bg-white border-[1.5px] border-t-primaryBg border-b-pink-500 border-x-primaryBg text-primaryBg text-lg font-semibold hover:bg-primaryBg hover:text-white flex w-fit justify-center items-center"
+            >
+              Sort By Price
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -33,15 +44,15 @@ export default function Cart() {
                 />
               </svg>
             </button>
-            <button className="btn rounded-full bg-gradient-to-tr border-[1.5px] to-primaryBg from-pink-400  text-white text-lg font-semibold hover:bg-primaryBg">
+            <button onClick={handlePurchase} className="btn rounded-full bg-gradient-to-tr border-[1.5px] to-primaryBg from-pink-400  text-white text-lg font-semibold hover:bg-primaryBg">
               Purchase
             </button>
           </div>
         </div>
-        <div>
-          {carts.map((product) => {
-            "parvej"
-          })}
+        <div className="space-y-8 mt-10">
+          {sortedCart.map((product) => (
+            <ListedProduct key={product.product_id} handleRemoveCart={handleRemoveCart} product={product} />
+          ))}
         </div>
       </section>
     </div>

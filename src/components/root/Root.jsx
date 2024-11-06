@@ -28,8 +28,22 @@ export default function Root() {
       toast.success('Product added to wishList');
     }
   }
+  const handleRemoveWishList = (product)=>{
+    const newList = wishLists.filter(item=>item.product_id != product.product_id);
+    setWishLists(newList);
+    toast.error(`${product.product_title} removed from wishList`);
+  }
+  const handleRemoveCart = (product)=>{
+    const newList = carts.filter(item=>item.product_id != product.product_id);
+    setCarts(newList);
+    toast.error(`${product.product_title} removed from Carts`);
+  }
+  const sortCart = () => {
+    const sortedArray = [...carts].sort((a, b) => b.price - a.price);
+    setCarts(sortedArray);
+  };
   return (
-    <cartContext.Provider value={{carts,handleAddToCart,wishLists,handleAddToWishList}}>
+    <cartContext.Provider value={{carts,handleAddToCart,wishLists,handleAddToWishList,setWishLists,setCarts,handleRemoveWishList,handleRemoveCart,sortCart}}>
       <div>
       <div>
         <NavBar />
