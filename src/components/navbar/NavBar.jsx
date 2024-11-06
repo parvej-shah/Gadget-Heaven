@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { cartContext } from "../../context";
 
 export default function NavBar() {
+  const {carts,wishLists}= useContext(cartContext);
   const location = useLocation();
   const activeLink = `${location.pathname=='/'?'focus:text-white text-white underline hover:bg-transparent':'focus:text-primaryBg text-primaryBg hover:bg-transparent hover:text-primaryBg'} focus:bg-transparent font-bold`;
   const inActiveLink =
@@ -64,7 +66,7 @@ export default function NavBar() {
         <div className="navbar-end gap-3 pr-4">
           <div className="indicator">
             <span className="indicator-item badge bg-primaryBg font-bold text-white border-0 rounded-full w-6 h-6">
-              16
+              {carts.length}
             </span>
             <div className="h-10 w-10 border rounded-full bg-white flex justify-center items-center">
               <svg
@@ -85,7 +87,7 @@ export default function NavBar() {
           </div>
           <div className="indicator">
             <span className="indicator-item badge bg-primaryBg font-bold text-white border-0 rounded-full w-6 h-6">
-              16
+              {wishLists.length}
             </span>
             <div className="h-10 w-10 rounded-full border bg-white flex justify-center items-center">
               <svg

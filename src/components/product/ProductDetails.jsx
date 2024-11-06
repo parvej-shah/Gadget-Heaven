@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
+import { cartContext } from "../../context";
 
 export default function ProductDetails() {
+  const {handleAddToCart,handleAddToWishList} = useContext(cartContext);
   const products = useLoaderData();
   const { id } = useParams();
   const product = products.find((pro) => pro.product_id === id);
@@ -17,7 +19,6 @@ export default function ProductDetails() {
     availability,
     rating,
   } = product;
-  console.log(product);
   return (
     <div className="bg-seconderyBg pb-10">
       <div className="bg-primaryBg p-6 pb-52">
@@ -81,7 +82,7 @@ export default function ProductDetails() {
             </div>
             </div>
             <div className="card-actions justify-start items-center gap-4">
-              <button className="btn rounded-full bg-primaryBg text-white flex items-center justify-center gap-1 hover:bg-primaryBg/90">
+              <button onClick={()=>handleAddToCart(product)} className="btn rounded-full bg-primaryBg text-white flex items-center justify-center gap-1 hover:bg-primaryBg/90">
                 Add To Card
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +99,7 @@ export default function ProductDetails() {
                   />
                 </svg>
               </button>
-              <button className="h-12 w-12 rounded-full border bg-white flex justify-center items-center">
+              <button onClick={()=>handleAddToWishList(product)} className="h-12 w-12 rounded-full border bg-white flex justify-center items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
