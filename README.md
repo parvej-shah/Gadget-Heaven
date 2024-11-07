@@ -5,8 +5,7 @@
 ## Overview
 Gadget Heaven is a responsive web application for browsing and purchasing the latest gadgets. The project was built using React and incorporates several core concepts, state management, and UI libraries to deliver a seamless and engaging user experience.
 
-## Requirement Document
-[View Requirement Document](https://drive.google.com/file/d/199FJAi9bccog6y6Gui-nlSkn73Ewv8Rj/view?usp=sharing)
+## [View Requirement Document](https://drive.google.com/file/d/199FJAi9bccog6y6Gui-nlSkn73Ewv8Rj/view?usp=sharing)
 
 ## React Fundamental Concepts Used
 1. **React Components**: Functional components are used to structure the UI, promoting modularity and reusability.

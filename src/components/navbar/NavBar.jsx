@@ -37,7 +37,7 @@ export default function NavBar() {
     </>
   );
   return (
-    <div className={location.pathname=='/'?'bg-primaryBg rounded-t-xl mx-5 mt-5 pt-2':'bg-white'}>
+    <div className={location.pathname=='/'?'bg-primaryBg md:rounded-t-xl md:mx-5 md:mt-5 md:pt-2':'bg-white'}>
       <div className="navbar container mx-auto py-4">
         <div className="navbar-start">
           <div className="dropdown">

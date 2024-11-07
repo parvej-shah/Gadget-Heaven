@@ -9,7 +9,7 @@ import Footer from "../footer/Footer";
 export default function Root() {
   const [carts, setCarts] = useState([]);
   const [wishLists, setWishLists] = useState([]);
-  const [title, setTitle] = useState('Gadget Heaven');
+  const [title, setTitle] = useState('Gadget Heaven | Gadgets');
   const handleAddToCart = (product)=>{
     const productFind = carts.find(item=>item.product_id === product.product_id);
     if(productFind){
