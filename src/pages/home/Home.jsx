@@ -13,9 +13,10 @@ export default function Home() {
     const[ activeCategory,setactiveCategory] = useState('All Products');
     useEffect(()=>{
         const getCategories = allProducts.map(product=> product.category);
-        setCategories(['All Products',...new Set(getCategories)]);
+        setCategories(['All Products',...new Set(getCategories),'Mouse']);
         setSearchedProducts(allProducts);
-        setTitle('Gadget Heaven');
+        setactiveCategory('All Products');
+        setTitle('Gadget Heaven | Gadgets');
     },[])
     const searchProduct = (category)=>{
         if(category==='All Products'){
@@ -37,7 +38,7 @@ export default function Home() {
              <ProductCategories activeCategory={activeCategory} searchProduct={searchProduct} categories={categories}/>
             </aside>
             <section className='md:w-3/4'>
-             <Products products={searchedProducts}/>
+             {searchedProducts.length>0?<Products products={searchedProducts}/>:<h2 className='text-2xl text-primaryBg font-bold md:m-5'>Products Not Available</h2>}
             </section>
         </section>
     </div>

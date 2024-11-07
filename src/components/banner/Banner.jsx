@@ -3,9 +3,9 @@ import bannerImg from "../../assets/bannerImg.png";
 import { Link } from "react-router-dom";
 export default function Banner() {
   return (
-    <div className="">
-      <div className="hero bg-primaryBg text-white pb-28 md:pb-72">
-        <div className="hero-content text-center z-10">
+    <div className="bg-white md:px-5 rounded-b-xl">
+      <div className="hero bg-primaryBg rounded-b-xl text-white pb-28 md:pb-72">
+        <div className="hero-content text-center z-10 container mx-auto">
           <div className="max-w-6xl">
             <h1 className="text-4xl md:text-6xl font-bold">
               Upgrade Your Tech Accessorize with Gadget Heaven Accessories
