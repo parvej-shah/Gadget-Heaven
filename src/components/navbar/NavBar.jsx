@@ -29,7 +29,7 @@ export default function NavBar() {
         Dashboard
       </NavLink></li>
       <li><NavLink
-        to={"/faqs"}
+        to={"/f-a-q-s"}
         className={({ isActive }) => (isActive ? activeLink : inActiveLink)}
       >
         FAQs
