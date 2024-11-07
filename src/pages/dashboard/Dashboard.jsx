@@ -4,6 +4,9 @@ import WishList from '../../components/product/WishList'
 import { cartContext } from "../../context";
 export default function Dashboard() {
   const {setTitle} = useContext(cartContext);
+  useEffect(()=>{
+    setTitle('Gadget Heaven | Dashboard')
+  },[])
   const [isActiveList,setIsActiveList] = useState('Cart');
   const activeBtn = 'btn w-1/2 bg-white hover:bg-primaryBg hover:border hover:border-white hover:text-white text-primaryBg rounded-full text-lg font-extrabold';
   const inActiveBtn = 'btn w-1/2 hover:bg-white bg-primaryBg border border-white hover:text-primaryBg text-white rounded-full text-lg font-medium';

@@ -1,5 +1,6 @@
 import React from "react";
 import bannerImg from "../../assets/bannerImg.png";
+import { Link } from "react-router-dom";
 export default function Banner() {
   return (
     <div className="">
@@ -14,9 +15,9 @@ export default function Banner() {
               next level. From smart devices to the coolest accessories, we have
               it all!
             </p>
-            <button className="btn bg-white text-primaryBg font-bold text-xl rounded-full ">
+            <Link to={'/dashboard'}><button className="btn bg-white text-primaryBg font-bold text-xl rounded-full ">
               Shop Now
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>

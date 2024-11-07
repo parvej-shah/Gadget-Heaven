@@ -5,6 +5,7 @@ import { cartContext } from "../../context";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet, HelmetProvider } from "react-helmet-async"
+import Footer from "../footer/Footer";
 export default function Root() {
   const [carts, setCarts] = useState([]);
   const [wishLists, setWishLists] = useState([]);
@@ -55,6 +56,7 @@ export default function Root() {
       </div>
       <Outlet />
       <ToastContainer/>
+      <Footer/>
     </div>
       </HelmetProvider>
     </cartContext.Provider>

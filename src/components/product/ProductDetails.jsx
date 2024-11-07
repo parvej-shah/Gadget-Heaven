@@ -20,7 +20,7 @@ export default function ProductDetails() {
     rating,
   } = product;
   return (
-    <div className="bg-seconderyBg pb-10">
+    <div className="bg-seconderyBg pb-32">
       <div className="bg-primaryBg p-6 pb-52">
         <h2 className="font-bold text-3xl text-white text-center">
           Product Details

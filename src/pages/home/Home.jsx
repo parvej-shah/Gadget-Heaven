@@ -32,7 +32,7 @@ export default function Home() {
     <div className='bg-seconderyBg'>
         <Banner/>
         <h2 className='text-primaryText font-bold text-4xl text-center mt-10'>Explore Cutting-Edge Gadgets</h2>
-        <section className='flex flex-col md:flex-row gap-4 container mx-auto mt-10'>
+        <section className='flex flex-col px-2 md:flex-row gap-4 container mx-auto mt-10'>
             <aside className='md:w-1/4'>
              <ProductCategories activeCategory={activeCategory} searchProduct={searchProduct} categories={categories}/>
             </aside>

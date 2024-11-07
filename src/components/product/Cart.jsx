@@ -69,9 +69,9 @@ export default function Cart() {
                 id="my_modal_1"
                 className={`modal ${modalOpen ? "modal-open" : ""}`}
               >
-                <div className="modal-box flex flex-col items-center p-8">
+                <div className="modal-box flex flex-col text-center items-center p-8">
                   <img src={modalImg} alt="" className="mb-4 h-fit w-fit"/>
-                  <h3 className="font-bold text-primaryText text-2xl">Payment Successfully</h3>
+                  <h3 className="font-bold text-primaryText text-2xl">Payment Successfull</h3>
                   <div className="divider"></div>
                   <p className="font-medium text-primaryText/60">Thanks for Purchasing.</p>
                   <p className="font-medium text-primaryText/60">Total: ${totalSum.toFixed(2)}</p>
