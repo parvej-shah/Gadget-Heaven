@@ -13,21 +13,21 @@ export default function Root() {
   const handleAddToCart = (product)=>{
     const productFind = carts.find(item=>item.product_id === product.product_id);
     if(productFind){
-      toast.warning('Product already added to cart');
+      toast.warning(`${product.product_title} already in Cart`);
     }
     else{
       setCarts([...carts,product]);
-      toast.success('Product added to cart');
+      toast.success(`${product.product_title} added to Cart`);
     }
   }
   const handleAddToWishList = (product)=>{
     const productFind = wishLists.find(item=>item.product_id === product.product_id);
     if(productFind){
-      toast.warning('Product already added to wishList');
+      toast.warning(`${product.product_title} already in wishList`);
     }
     else{
       setWishLists([...wishLists,product]);
-      toast.success('Product added to wishList');
+      toast.success(`${product.product_title} added to wishList`);
     }
   }
   const handleRemoveWishList = (product)=>{
@@ -38,7 +38,7 @@ export default function Root() {
   const handleRemoveCart = (product)=>{
     const newList = carts.filter(item=>item.product_id != product.product_id);
     setCarts(newList);
-    toast.error(`${product.product_title} removed from Carts`);
+    toast.error(`${product.product_title} removed from Cart`);
   }
   const sortCart = () => {
     const sortedArray = [...carts].sort((a, b) => b.price - a.price);

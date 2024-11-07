@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import { cartContext } from "../../context";
 
 export default function ProductDetails() {
-  const {handleAddToCart,handleAddToWishList} = useContext(cartContext);
+  const {handleAddToCart,handleAddToWishList, setTitle} = useContext(cartContext);
   const products = useLoaderData();
   const { id } = useParams();
   const product = products.find((pro) => pro.product_id === id);
@@ -19,6 +19,9 @@ export default function ProductDetails() {
     availability,
     rating,
   } = product;
+  useEffect(()=>{
+    setTitle('Gadged Heaven | Product Details')
+  },[])
   return (
     <div className="bg-seconderyBg pb-32">
       <div className="bg-primaryBg p-6 pb-52">

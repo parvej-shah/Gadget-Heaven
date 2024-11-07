@@ -28,6 +28,12 @@ export default function NavBar() {
       >
         Dashboard
       </NavLink></li>
+      <li><NavLink
+        to={"/faqs"}
+        className={({ isActive }) => (isActive ? activeLink : inActiveLink)}
+      >
+        FAQs
+      </NavLink></li>
     </>
   );
   return (

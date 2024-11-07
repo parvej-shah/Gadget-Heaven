@@ -14,7 +14,7 @@ export default function WishList() {
           <h1 className="font-bold text-2xl text-primaryText">WishList</h1>
         </div>
         <div className="space-y-8 mt-10">
-          {wishLists.map(product=><ListedWish key={product.product_id} handleCartSuffle={handleCartSuffle} product={product}/>)}
+          {wishLists.map(product=><ListedWish key={product.product_id} handleRemoveWishList={handleRemoveWishList} handleCartSuffle={handleCartSuffle} product={product}/>)}
         </div>
       </section>
     </div>

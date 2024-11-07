@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ListedWish({product,handleCartSuffle}) {
+export default function ListedWish({product,handleCartSuffle,handleRemoveWishList}) {
   return (
     <div>
       <div className="card  gap-4 flex-col md:flex-row bg-white shadow-md p-8">
@@ -16,7 +16,7 @@ export default function ListedWish({product,handleCartSuffle}) {
           <button onClick={()=>handleCartSuffle(product)} className='btn  hover:bg-white bg-primaryBg border border-white hover:text-primaryBg text-white rounded-full text-lg font-medium'>Add To Cart</button>
         </div>
         <div className="md:w-1/4 flex justify-end items-start w-full">
-          <button className="h-9 w-9 border-red-500 border rounded-full text-red-500 flex items-center justify-center hover:bg-red-100">
+          <button onClick={()=>handleRemoveWishList(product)} className="h-9 w-9 border-red-500 border rounded-full text-red-500 flex items-center justify-center hover:bg-red-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
